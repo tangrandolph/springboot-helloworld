@@ -30,10 +30,10 @@ public class MyBatisConfig {
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        // db = ariel
-        dataSource.setUrl("jdbc:mariadb://10.0.0.118:3306/ariel?useUnicode=true&characterEncoding=utf8&useSSL=false&&serverTimezone=CST");
+        // db = default_db
+        dataSource.setUrl("jdbc:mariadb://10.0.0.118:3306/default_db?useUnicode=true&characterEncoding=utf8&useSSL=false&&serverTimezone=CST");
         dataSource.setUsername("root");
-        dataSource.setPassword("wasd");
+        dataSource.setPassword("mariadb");
         return dataSource;
     }
 }
