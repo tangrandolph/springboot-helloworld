@@ -39,5 +39,12 @@ Login locally `mysql -u root -p` (seems locally need no password, you can input 
 create user 'root'@'%' identified by 'mariadb';
 FLUSH PRIVILEGES;
 
+# change password
 set password for username@localhost = password('newpassword');
+# show users
+use mysql;
+select User, Host from user;
 ```
+
+## Import logback
+add logback-xml in resource folder
