@@ -25,16 +25,16 @@
     <!-- RollingFileAppender：滚动记录文件，先将日志记录到指定文件，当符合某个条件时，将日志记录到其他文件 -->
     <!-- 以下的大概意思是：1.先按日期存日志，日期变了，将前一天的日志文件名重命名为XXX%日期%索引，新的日志仍然是project_info.log -->
     <!--             2.如果日期没有发生变化，但是当前日志的文件大小超过10MB时，对当前日志进行分割 重命名-->
-    <appender name="info_log" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <appender name="all_log" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <!--日志文件路径和名称-->
-        <File>logs/info.log</File>
+        <File>logs/all.log</File>
         <!--是否追加到文件末尾,默认为true-->
         <append>true</append>
-        <filter class="ch.qos.logback.classic.filter.LevelFilter">
-            <level>ERROR</level>
-            <onMatch>DENY</onMatch><!-- 如果命中ERROR就禁止这条日志 -->
-            <onMismatch>ACCEPT</onMismatch><!-- 如果没有命中就使用这条规则 -->
-        </filter>
+<!--        <filter class="ch.qos.logback.classic.filter.LevelFilter">-->
+<!--            <level>ERROR</level>-->
+<!--            <onMatch>DENY</onMatch>&lt;!&ndash; 如果命中ERROR就禁止这条日志 &ndash;&gt;-->
+<!--            <onMismatch>ACCEPT</onMismatch>&lt;!&ndash; 如果没有命中就使用这条规则 &ndash;&gt;-->
+<!--        </filter>-->
         <!--有两个与RollingFileAppender交互的重要子组件。 第一个RollingFileAppender子组件，即RollingPolicy:负责执行翻转所需的操作。
          RollingFileAppender的第二个子组件，即TriggeringPolicy:将确定是否以及何时发生翻转。 因此，RollingPolicy负责什么和TriggeringPolicy负责什么时候.
         作为任何用途，RollingFileAppender必须同时设置RollingPolicy和TriggeringPolicy,但是，如果其RollingPolicy也实现了TriggeringPolicy接口，则只需要显式指定前者。-->
@@ -106,27 +106,27 @@
     <!-- configuration中最多允许一个root，别的logger如果没有设置级别则从父级别root继承 -->
     <root level="INFO">
         <appender-ref ref="STDOUT" />
-        <appender-ref ref="info_log" />
+        <appender-ref ref="all_log" />
         <appender-ref ref="error_log" />
     </root>
 
     <!-- 指定项目中某个包，当有日志操作行为时的日志记录级别 -->
     <!-- 级别依次为【从高到低】：FATAL > ERROR > WARN > INFO > DEBUG > TRACE  -->
     <logger name="com.sailing.springbootmybatis" level="INFO">
-        <appender-ref ref="info_log" />
+        <appender-ref ref="all_log" />
         <appender-ref ref="error_log" />
     </logger>
 
     <!-- 利用logback输入mybatis的sql日志，
     注意：如果不加 additivity="false" 则此logger会将输出转发到自身以及祖先的logger中，就会出现日志文件中sql重复打印-->
     <logger name="com.sailing.springbootmybatis.mapper" level="DEBUG" additivity="false">
-        <appender-ref ref="info_log" />
+        <appender-ref ref="all_log" />
         <appender-ref ref="error_log" />
     </logger>
 
     <!-- additivity=false代表禁止默认累计的行为，即com.atomikos中的日志只会记录到日志文件中，不会输出层次级别更高的任何appender-->
     <logger name="com.atomikos" level="INFO" additivity="false">
-        <appender-ref ref="info_log" />
+        <appender-ref ref="all_log" />
         <appender-ref ref="error_log" />
     </logger>
 
