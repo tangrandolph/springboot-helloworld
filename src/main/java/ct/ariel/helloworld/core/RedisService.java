@@ -1,4 +1,4 @@
-package ct.ariel.helloworld.service;
+package ct.ariel.helloworld.core;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
