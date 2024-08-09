@@ -1,11 +1,11 @@
-package ct.ariel.helloworld.model;
+package ct.ariel.helloworld.domain;
 
 import lombok.Data;
 
 import java.io.Serializable;
 
 @Data
-public class UserDo implements Serializable {
+public class UserDO implements Serializable {
     private Long id;
     private String name;
 }

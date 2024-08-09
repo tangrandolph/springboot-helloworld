@@ -1,7 +1,7 @@
 package ct.ariel.helloworld.http;
 
 import ct.ariel.helloworld.mapper.UserMapper;
-import ct.ariel.helloworld.model.UserDo;
+import ct.ariel.helloworld.domain.UserDO;
 import ct.ariel.helloworld.core.RedisService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +12,7 @@ import java.util.List;
 
 @RestController
 @Slf4j
-public class Demo {
+public class DemoController {
 
     @Autowired
     private UserMapper userMapper;
@@ -20,19 +20,18 @@ public class Demo {
     @Autowired
     private RedisService redisService;
 
-    @GetMapping("/health")
-    public String health() {
-        String s = "Demo health check good";
+    @GetMapping("/checkpreload")
+    public String checkpreload() {
+        String s = "health check";
         log.info(s);
         return s;
     }
-
 
     @GetMapping("/hello")
     public String hello() {
         log.info("hello world");
 
-        List<UserDo> mariaResult = userMapper.selectAll();
+        List<UserDO> mariaResult = userMapper.selectAll();
         log.info("Demo get all items from mariadb ariel, table user\n{}", mariaResult.toString());
 
         String redisResult = redisService.get("hello");
