@@ -1,8 +1,6 @@
-package ct.ariel.helloworld.http;
+package ct.ariel.helloworld.demo;
 
-import ct.ariel.helloworld.mapper.UserMapper;
-import ct.ariel.helloworld.domain.UserDO;
-import ct.ariel.helloworld.core.RedisService;
+import ct.ariel.helloworld.redis.RedisService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

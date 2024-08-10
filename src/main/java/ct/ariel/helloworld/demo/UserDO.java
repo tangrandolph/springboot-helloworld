@@ -1,4 +1,4 @@
-package ct.ariel.helloworld.domain;
+package ct.ariel.helloworld.demo;
 
 import lombok.Data;
 

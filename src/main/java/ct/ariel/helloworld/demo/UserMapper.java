@@ -1,6 +1,5 @@
-package ct.ariel.helloworld.mapper;
+package ct.ariel.helloworld.demo;
 
-import ct.ariel.helloworld.domain.UserDO;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 

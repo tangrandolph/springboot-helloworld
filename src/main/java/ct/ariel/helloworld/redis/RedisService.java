@@ -1,4 +1,4 @@
-package ct.ariel.helloworld.core;
+package ct.ariel.helloworld.redis;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;

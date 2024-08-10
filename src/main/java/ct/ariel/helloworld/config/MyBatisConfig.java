@@ -1,6 +1,6 @@
 package ct.ariel.helloworld.config;
 
-import ct.ariel.helloworld.mapper.UserMapper;
+import ct.ariel.helloworld.demo.UserMapper;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.mapper.MapperFactoryBean;
